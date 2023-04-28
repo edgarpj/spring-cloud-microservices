@@ -1,0 +1,25 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  r2dbc:
+    url: r2dbc:h2:file:///~/db/productsdb
+    username: sa
+    password:
+    initialization-mode: always
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    preferIpAddress: false
+
+server:
+  port: 9001
+
+logging:
+  level:
+    org.springframework.data.r2dbc: DEBUG

@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: ${PRODUCT_SERVICE:http://localhost:9000}
+          predicates:
+            - Path=/products/**
+        - id: catalog-service
+          uri: ${CATALOG_SERVICE:http://localhost:9001}
+          predicates:
+            - Path=/catalog/products/**
+        - id: inventory-service
+          uri: ${INVENTORY_SERVICE:http://localhost:9002}
+          predicates:
+            - Path=/inventory/**
+
+
+
+
